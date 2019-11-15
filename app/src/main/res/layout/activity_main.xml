@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/title_A"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="测试"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_post"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="发送"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_A" />
+
+    <EditText
+        android:id="@+id/et_input"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_post"
+        app:layout_constraintStart_toEndOf="@+id/btn_post"
+        app:layout_constraintTop_toTopOf="@+id/btn_post" />
+
+    <TextView
+        android:id="@+id/tip_1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="订阅者A:"
+        app:layout_constraintStart_toEndOf="@id/et_input"
+        app:layout_constraintBottom_toBottomOf="@+id/et_input"
+        app:layout_constraintTop_toTopOf="@+id/et_input" />
+
+    <TextView
+        android:id="@+id/result_observe_A"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_post"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tip_1"
+        app:layout_constraintTop_toTopOf="@+id/btn_post" />
+
+    <TextView
+        android:id="@+id/title_B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="测试非粘性订阅（observe）和取消订阅"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_post" />
+
+    <Button
+        android:id="@+id/btn_subscribe_B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/et_input"
+        app:layout_constraintStart_toStartOf="@+id/btn_post"
+        app:layout_constraintTop_toBottomOf="@+id/title_B"
+        android:text="订阅"/>
+
+    <Button
+        android:id="@+id/btn_unsubscribe_B"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="取消订阅"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_subscribe_B"
+        app:layout_constraintEnd_toStartOf="@+id/tip_2"
+        app:layout_constraintStart_toEndOf="@+id/btn_subscribe_B"
+        app:layout_constraintTop_toTopOf="@+id/btn_subscribe_B" />
+
+    <TextView
+        android:id="@+id/tip_2"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="订阅者B:"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_subscribe_B"
+        app:layout_constraintStart_toStartOf="@+id/tip_1"
+        app:layout_constraintTop_toTopOf="@+id/btn_subscribe_B" />
+
+    <TextView
+        android:id="@+id/result_observe_B"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+
+        app:layout_constraintBottom_toBottomOf="@+id/btn_subscribe_B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tip_2"
+        app:layout_constraintTop_toTopOf="@+id/btn_subscribe_B" />
+
+    <TextView
+        android:id="@+id/title_C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="测试粘性订阅（observeSticky）和取消订阅"
+        android:textColor="@color/colorAccent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_subscribe_B" />
+
+    <Button
+        android:id="@+id/btn_subscribe_C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@+id/et_input"
+        app:layout_constraintStart_toStartOf="@+id/btn_post"
+        app:layout_constraintTop_toBottomOf="@+id/title_C"
+        android:text="订阅"/>
+
+    <Button
+        android:id="@+id/btn_unsubscribe_C"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="取消订阅"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_subscribe_C"
+        app:layout_constraintEnd_toStartOf="@+id/tip_3"
+        app:layout_constraintStart_toEndOf="@+id/btn_subscribe_C"
+        app:layout_constraintTop_toTopOf="@+id/btn_subscribe_C" />
+
+    <TextView
+        android:id="@+id/tip_3"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="订阅者C:"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_subscribe_C"
+        app:layout_constraintStart_toStartOf="@+id/tip_1"
+        app:layout_constraintTop_toTopOf="@+id/btn_subscribe_C" />
+
+    <TextView
+        android:id="@+id/result_observe_C"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:gravity="center"
+
+        app:layout_constraintBottom_toBottomOf="@+id/btn_subscribe_C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tip_2"
+        app:layout_constraintTop_toTopOf="@+id/btn_subscribe_C" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
