@@ -1,5 +1,7 @@
 package androidx.lifecycle
 
+import android.os.Handler
+import android.os.Looper
 import androidx.annotation.MainThread
 import com.lyt.livedatabus.Logger
 import com.lyt.livedatabus.core.BaseBusObserverWrapper
@@ -13,6 +15,8 @@ class BusLiveData<T>(private val mKey:String) : MutableLiveData<T>() {
     private val TAG = "BusLiveData"
 
     private val mObserverMap: MutableMap<Observer<in T>, BaseBusObserverWrapper<T>> = mutableMapOf()
+
+    private val mMainHandler = Handler(Looper.getMainLooper())
 
     @MainThread
     override fun observe(owner: LifecycleOwner, observer: Observer<in T>) {
@@ -66,6 +70,12 @@ class BusLiveData<T>(private val mKey:String) : MutableLiveData<T>() {
         }
         super.removeObservers(owner)
         Logger.d(TAG, "removeObservers() called with: owner = [$owner]")
+    }
+
+    override fun postValue(value: T) {
+       mMainHandler.post {
+           setValue(value)
+       }
     }
 
     @MainThread
